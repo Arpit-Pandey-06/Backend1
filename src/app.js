@@ -1,0 +1,32 @@
+import express from 'express';
+// import some middleware config 
+import cookiesParser from 'cookies-parser'
+import cors from 'cors'
+
+//we use app.use for middlware and config
+app.use(cors({
+    // this config for resource sharing with other domain origin
+origin:process.env.CORS_ORIGIN,
+Credential:true
+}
+))
+
+// configuration for data getting/request for different types by express
+
+//for json req
+app.use(express.json({
+    limit:'16kb'
+}))
+
+//for url req
+app.use(express.urlencoded({
+    extended:true,
+    limit:'20kb'
+}))
+
+//for public assest publicc folder assests such as image,fevicon,files which save on server
+app.use(express.static("public"))// public folder name
+
+const app = express();
+
+export default app;
