@@ -3,6 +3,7 @@ import express from 'express';
 import cookiesParser from 'cookies-parser'
 import cors from 'cors'
 
+const app = express();
 //we use app.use for middlware and config
 app.use(cors({
     // this config for resource sharing with other domain origin
@@ -27,6 +28,7 @@ app.use(express.urlencoded({
 //for public assest publicc folder assests such as image,fevicon,files which save on server
 app.use(express.static("public"))// public folder name
 
-const app = express();
+//cookiesParser: reading and writing andd deleting the which takes from user browser at server
+app.use(cookiesParser());
 
 export default app;
