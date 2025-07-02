@@ -1,6 +1,6 @@
 import express from 'express';
 // import some middleware config 
-import cookiesParser from 'cookies-parser'
+import cookieParser from 'cookie-parser'
 import cors from 'cors'
 
 const app = express();
@@ -29,6 +29,20 @@ app.use(express.urlencoded({
 app.use(express.static("public"))// public folder name
 
 //cookiesParser: reading and writing andd deleting the which takes from user browser at server
-app.use(cookiesParser());
+app.use(cookieParser());
 
-export default app;
+
+// =>>  Import "routes  "
+// all routes import there
+
+import userRouter from './routes/users.routes.js'
+
+//Router declaration
+// we use app.use command because we need to get middleware to activate routes
+
+app.use('/api/v1/user',userRouter) // when user move /user it automatically to corsepondes route which mention in arg such as"userRouter in this eg"
+
+// url : https://localhost:3000/user/register because we call register after user above id
+// call login without just change in routes
+
+export  default app;
