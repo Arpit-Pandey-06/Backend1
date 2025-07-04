@@ -25,10 +25,10 @@ app.use(express.urlencoded({
     limit:'20kb'
 }))
 
-//for public assest publicc folder assests such as image,fevicon,files which save on server
+//for public assest public folder assests such as image,fevicon,files which save on server
 app.use(express.static("public"))// public folder name
 
-//cookiesParser: reading and writing andd deleting the which takes from user browser at server
+//cookiesParser: reading and writing and deleting the which takes from user browser at server
 app.use(cookieParser());
 
 

@@ -102,4 +102,4 @@ user_Schema.methods.accessTokenGenerator = function (){
  
 
 
-export const User = mongoose.model("User",user_Schema)
+export const User = mongoose.model("User",user_Schema) // this controllers to operate with mongo db
